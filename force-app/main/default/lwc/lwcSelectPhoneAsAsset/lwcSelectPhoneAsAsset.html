@@ -1,0 +1,27 @@
+<template>
+
+    <div class="product-container">
+        <template for:each={products} for:item="pr">
+            <div key={pr.id} class="product-card">
+                <div class="product-image">
+                    <img src={pr.ImageUrl} class="product-thumb" alt={pr.Name}>
+                    <button class="card-btn" onclick={handleClick} 
+                    product-name={pr.Name}  
+                    product-one-time-price={pr.OneTimePrice}>Choose this
+                        phone</button>
+                </div>
+                <div class="product-info">
+                    <h2 class="product-brand">{pr.Name}</h2>
+                    <!--
+    <p class="product-short-des">a short line about the cloth..</p>
+    -->
+
+
+                    <span class="price">${pr.OneTimePrice}</span>
+                </div>
+            </div>
+
+        </template>
+
+</div>
+</template>
