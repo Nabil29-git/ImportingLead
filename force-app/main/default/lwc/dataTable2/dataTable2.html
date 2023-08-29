@@ -1,0 +1,51 @@
+<template>
+    <lightning-card title="Account Data Table" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                <thead class="slds-line-height_reset">
+                    <tr>
+                        <template for:each={columns} for:item="column">
+                            <th key={column.fieldName} scope="col">
+                                <div class="slds-truncate" title={column.label}>
+                                    {column.label}
+                                </div>
+                                <template if:true={column.filterable}>
+                                    <lightning-button-icon
+                                        data-column={column.label}
+                                        icon-name="utility:filter"
+                                        alternative-text="Filter"
+                                        variant="border-filled"
+                                        size="small"
+                                        title={column.label}
+                                        onclick={toggleFilter}
+                                    ></lightning-button-icon>
+                                    <template if:true={column.show}>
+
+                                        <lightning-combobox
+                                            data-column={column.label}
+                                            label="Select"
+                                            value={}
+                                            options={column.options}
+                                            onchange={handleFilterChange}
+                                         ></lightning-combobox>
+                                         
+                                    </template>
+                                </template>
+                            </th>
+                        </template>
+                    </tr>
+                </thead>
+                <tbody>
+                    <template for:each={accountData} for:item="row">
+                        <tr key={row.Id}>
+                            <td>{row.Name}</td>
+                            <td>{row.Type}</td>
+                            <td>{row.Industry}</td>
+                            <td>{row.AnnualRevenue}</td>
+                        </tr>
+                    </template>
+                </tbody>
+            </table>
+        </div>
+    </lightning-card>
+</template>

@@ -1,0 +1,13 @@
+<template>
+    <lightning-card  title="Conditonal Rendering Elements" icon-name="standard:account">
+        <div class="slds-p-horizontal_small">Hello, {myValue} !</div>
+        <br/>
+        <lightning-input type="checkbox" label="Click Me" name="ClickMe" onchange={handleChange}></lightning-input>
+        <template if:true={showMe}>
+            I'm Visible
+        </template>
+        <template if:false={showMe}>
+            I'm Not Visible
+        </template>
+    </lightning-card>
+</template>

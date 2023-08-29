@@ -1,0 +1,52 @@
+<template>
+    <div class="container">
+
+        <div class="custom-label">
+            <label class="slds-form-element__label">Select a date</label>
+            <lightning-input variant="label-hidden" type="date" name="input1" label="Select a date" onchange={handleChange}></lightning-input>
+        </div>
+
+        
+        <table class="slds-table slds-table_bordered slds-table_cell-buffer">
+            <thead>
+                <tr class="slds-line-height_reset">
+                    <th class="" scope="col">
+                        <div class="slds-truncate" >Name</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" >Morning</div>
+                    </th>
+                    <th class="" scope="col">
+                        <div class="slds-truncate" >Afternoon</div>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+
+                <template for:each={techs} for:item="tech">
+                <tr key={tech.Id} class="slds-hint-parent">
+                    <td>
+                        <div class="slds-truncate" >{tech.Name}</div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" >
+                        
+                            <button  data-id={tech.Id} onclick={MorningEvent} disabled={tech.isMorning}>Morning</button>
+                       
+                        </div>
+                    </td>
+                    <td>
+                        <div class="slds-truncate" >
+                           
+                                <button  data-id={tech.Id} onclick={AfternoonEvent} disabled={tech.isAfternoon}>Afternoon</button>
+                           
+                            </div>
+                    </td>
+                </tr>
+
+                </template>
+                <!-- Add more rows as needed -->
+            </tbody>
+        </table>
+    </div>
+</template>

@@ -1,0 +1,60 @@
+<template>
+    <lightning-card title="Account Data Table" icon-name="standard:account">
+        <div class="slds-m-around_medium">
+            <div class="slds-form-element">
+                <label class="slds-form-element__label">Filter by Name:</label>
+                <div class="slds-form-element__control">
+                    <lightning-button-icon
+                        icon-name="utility:filter"
+                        alternative-text="Filter"
+                        variant="border-filled"
+                        size="medium"
+                        onclick={toggleFilter}
+                    ></lightning-button-icon>
+                    <template if:true={showFilter}>
+                        <lightning-combobox
+                            name="accountFilter"
+                            label="Select an Account"
+                            placeholder="Select an Account"
+                            value={selectedFilters.Name}
+                            options={accountOptions}
+                            onchange={handleFilterChange}
+                            data-field="Name"
+                        ></lightning-combobox>
+                        <lightning-combobox
+                            name="typeFilter"
+                            label="Select a Type"
+                            placeholder="Select a Type"
+                            value={selectedFilters.Type}
+                            onchange={handleFilterChange}
+                            data-field="Type"
+                        ></lightning-combobox>
+                        <lightning-combobox
+                            name="industryFilter"
+                            label="Select an Industry"
+                            placeholder="Select an Industry"
+                            value={selectedFilters.Industry}
+                            onchange={handleFilterChange}
+                            data-field="Industry"
+                        ></lightning-combobox>
+                        <lightning-combobox
+                            name="revenueFilter"
+                            label="Select Annual Revenue"
+                            placeholder="Select Annual Revenue"
+                            value={selectedFilters.AnnualRevenue}
+                            onchange={handleFilterChange}
+                            data-field="AnnualRevenue"
+                        ></lightning-combobox>
+                    </template>
+                </div>
+            </div>
+            <lightning-datatable
+                key-field="Id"
+                data={accountData}
+                columns={columns}
+                hide-checkbox-column
+                onsort={handleSort}
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

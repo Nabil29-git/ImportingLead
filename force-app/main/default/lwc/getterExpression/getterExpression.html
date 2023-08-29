@@ -1,0 +1,9 @@
+<template>
+    <lightning-card  title="Data Binding using getter Expression" icon-name="standard:account">
+        <div class="slds-p-horizontal_small">Hello, {uppercaseName} !</div>
+            <div style="padding:10px">
+                <lightning-input type="text" name="firstName" label="First Name"  onchange={handleChange}></lightning-input>
+                <lightning-input type="text" name="lastName" label="Last Name"  onchange={handleChange}></lightning-input>
+            </div>
+    </lightning-card>
+</template>

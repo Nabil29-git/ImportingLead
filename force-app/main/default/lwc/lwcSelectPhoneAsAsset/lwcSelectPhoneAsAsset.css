@@ -5,8 +5,7 @@
   scroll-behavior: smooth;
   align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
-  
+  flex-wrap: wrap; 
 }
 
 .product-container::-webkit-scrollbar{

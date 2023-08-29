@@ -1,0 +1,14 @@
+<template>
+    <lightning-card  title="I'm parent with API property" icon-name="utility:user">
+        <div class="slds-p-horizontal_small">
+            <lightning-input type="number" value={percentage} onchange={handleonchange}></lightning-input>
+            <br>
+            <c-childofp2cusingapi percentage={percentage}></c-childofp2cusingapi>
+        </div>
+        <div class="slds-p-horizontal_small">
+            <lightning-button label="Refresh"  onclick={handleClick}></lightning-button>
+            <br>
+            <c-childodp2cusingfunction></c-childodp2cusingfunction>
+        </div>
+    </lightning-card>
+</template>
